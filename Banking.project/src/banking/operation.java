@@ -63,10 +63,34 @@ public class operation {
 	}
 
 	public void deposit() {
-		System.out.println("Enter a account number :-");
+		System.out.println("Enter account number to deposit money :-");
 		if (ac.getAccno() == sc.nextInt()) {
 			System.out.println("Enter amount to deposit:- ");
 			ac.setBalance(ac.getBalance() + sc.nextDouble());
+
+			System.out.println("Amount deposited sucessfully. \nYour available balance is : " + ac.getBalance());
+
+		} else {
+			System.out.println("Please enter correct account number ");
+		}
+	}
+
+	public void Withdraw() {
+		System.out.println("Enter account number to withdraw money:- ");
+		if (ac.getAccno() == sc.nextInt()) {
+			System.out.println("Enter amount to withdraw ");
+			double wd = sc.nextDouble();
+
+			if ((ac.getBalance() - wd) != 500 && (ac.getBalance() - wd) > wd) {
+				ac.setBalance(ac.getBalance() - wd);
+				System.out.println("Amount withdrawl sucessfully..\nYour available balance is :- "+ac.getBalance());
+				
+			} else {
+				System.out.println("Insufficient Fund..");
+				System.out.println("PLease enter correct amount:- ");
+			}
+		} else {
+			System.out.println("Please enter correct account number:- ");
 		}
 	}
 }
